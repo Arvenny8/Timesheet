@@ -5,5 +5,5 @@ const projectController = require("../controller/projectController");
 const router = express.Router();
 
 router.post("/addproject", projectController.addproject);
-router.get("/projectname", projectController.getProjectByName);
+router.get("/getproject", projectController.getProject);
 module.exports = router;

@@ -41,12 +41,6 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
     Employee.associate = (models) => {
-        Employee.belongsTo(models.Timesheet, {
-            foreingnKey: {
-                name: "employeeId",
-                allowNull: false,
-            },
-        });
         Employee.hasMany(models.EmployeeProjectRelation, {
             foreingnKey: {
                 name: "employeeId",
@@ -54,6 +48,5 @@ module.exports = (sequelize, DataTypes) => {
             },
         });
     };
-
     return Employee;
 };

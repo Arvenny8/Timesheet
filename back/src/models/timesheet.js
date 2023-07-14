@@ -29,15 +29,9 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
     Timesheet.associate = (models) => {
-        Timesheet.hasMany(models.Employee, {
+        Timesheet.belongsTo(models.EmployeeProjectRelation, {
             foreingnKey: {
-                name: "employeeId",
-                allowNull: false,
-            },
-        });
-        Timesheet.hasMany(models.Project, {
-            foreingnKey: {
-                name: "projectId",
+                name: "EmployeeProjectRelationId",
                 allowNull: false,
             },
         });

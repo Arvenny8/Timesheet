@@ -1,6 +1,7 @@
 import { useState } from "react";
 import RegisterInput from "../features/auth/components/RegisterInput";
 import axios from "../api/axios";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterPage() {
     const [email, setEmail] = useState("");
@@ -10,10 +11,7 @@ export default function RegisterPage() {
     const [lastName, setLastName] = useState("");
     const [salary, setSalary] = useState("");
     const [role, setRole] = useState("");
-
-    // const hdlemail = (event) => {
-    //     setEmail(event.target.value);
-    // };
+    const navigate = useNavigate();
 
     const hdlpassword = (event) => {
         setPassword(event.target.value);
@@ -49,6 +47,8 @@ export default function RegisterPage() {
             localStorage.setItem("accessToken", res.data.accessToken);
         } catch (error) {
             console.error(error);
+        } finally {
+            navigate("/");
         }
     };
 
@@ -57,29 +57,35 @@ export default function RegisterPage() {
         <>
             <form
                 onSubmit={handleFormSubmit}
-                className="bg-slate-500 w-screen h-screen flex items-center justify-center"
+                className="bg-slate-800 w-screen h-screen flex items-center justify-center"
             >
-                <div className=" flex items-center justify-center bg-slate-300 w-4/12 h-1/3">
+                <div className=" flex items-center justify-center bg-slate-600 w-4/12 h-1/2">
                     <div className="flex flex-col gap-3">
                         <div className="flex justify-center">
-                            <div className="font-semibold">CREATE ACCOUNT</div>
+                            <div className="font-semibold text-white">
+                                CREATE ACCOUNT
+                            </div>
                         </div>
                         <div className="flex gap-5 justify-center">
-                            <div className="font-semibold">E-MAIL :</div>
+                            <div className="font-semibold text-white ">
+                                E-MAIL :
+                            </div>
                             <RegisterInput
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
                         <div className="flex gap-5 justify-center">
-                            <div className="font-semibold">PASSWORD :</div>
+                            <div className="font-semibold text-white ">
+                                PASSWORD :
+                            </div>
                             <RegisterInput
                                 value={password}
                                 onChange={hdlpassword}
                             />
                         </div>
                         <div className="flex gap-5 justify-center">
-                            <div className="font-semibold">
+                            <div className="font-semibold text-white">
                                 CONFIRMPASSWORD :
                             </div>
                             <RegisterInput
@@ -88,33 +94,41 @@ export default function RegisterPage() {
                             />
                         </div>
                         <div className="flex gap-5 justify-center">
-                            <div className="font-semibold">FIRSTNAME :</div>
+                            <div className="font-semibold text-white">
+                                FIRSTNAME :
+                            </div>
                             <RegisterInput
                                 value={firstName}
                                 onChange={hdlfirstName}
                             />
                         </div>
                         <div className="flex gap-5 justify-center">
-                            <div className="font-semibold">LASTNAME :</div>
+                            <div className="font-semibold text-white">
+                                LASTNAME :
+                            </div>
                             <RegisterInput
                                 value={lastName}
                                 onChange={hdllastName}
                             />
                         </div>
                         <div className="flex gap-5 justify-center">
-                            <div className="font-semibold">SALARY :</div>
+                            <div className="font-semibold text-white">
+                                SALARY :
+                            </div>
                             <RegisterInput
                                 value={salary}
                                 onChange={hdlsalary}
                             />
                         </div>
                         <div className="flex gap-5 justify-center">
-                            <div className="font-semibold">ROLE :</div>
+                            <div className="font-semibold text-white">
+                                ROLE :
+                            </div>
                             <RegisterInput value={role} onChange={hdlrole} />
                         </div>
                         <button
                             type="submit"
-                            className="bg-white font-semibold"
+                            className="bg-slate-800 text-white   font-semibold rounded"
                         >
                             Submit
                         </button>

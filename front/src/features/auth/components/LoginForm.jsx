@@ -1,8 +1,8 @@
-// import { Link } from "react-router-dom";
 import { useState } from "react";
 import LoginInput from "./LoginInput";
 import axios from "../../../api/axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function LoginForm() {
     const [email, setEmail] = useState("");
@@ -22,7 +22,7 @@ export default function LoginForm() {
         try {
             const res = await axios.post("/auth/login", { email, password });
             localStorage.setItem("accessToken", res.data.accessToken);
-            navigate("/timesheetpage");
+            navigate("/teamPage");
             console.log("first");
         } catch (error) {
             console.error(error);
@@ -33,33 +33,46 @@ export default function LoginForm() {
         <>
             <form
                 onSubmit={handleFormSubmit}
-                className="bg-slate-500 w-screen h-screen flex items-center justify-center"
+                className="bg-slate-800 w-screen h-screen flex items-center justify-center"
             >
-                <div className=" flex items-center justify-center bg-slate-300 w-4/12 h-1/4">
+                <div className=" flex items-center justify-center bg-slate-600 w-4/12 h-1/4">
                     <div className="flex flex-col gap-3">
                         <div className="flex justify-center">
-                            <div className="font-semibold">TIMESHEET</div>
+                            <div className="font-semibold text-xl text-white">
+                                TIMESHEET
+                            </div>
                         </div>
                         <div className="flex gap-5 justify-center">
-                            <div className="font-semibold">E-MAIL :</div>
+                            <div className="font-semibold text-white">
+                                E-MAIL :
+                            </div>
                             <LoginInput
                                 value={email}
                                 onChange={handleEmailChange}
                             />
                         </div>
                         <div className="flex gap-5 justify-center">
-                            <div className="font-semibold">PASSWORD :</div>
+                            <div className="font-semibold text-white">
+                                PASSWORD :
+                            </div>
                             <LoginInput
                                 value={password}
                                 onChange={handlePasswordChange}
                             />
                         </div>
 
-                        <div className="flex justify-center">
-                            {/* <Link to="/registerpage">
-                                <div className="font-semibold">REGISTER</div>
-                            </Link> */}
-                            <button type="submit">Submit</button>
+                        <div className="flex justify-center gap-6">
+                            <button
+                                type="submit"
+                                className="font-semibold bg-gray-500 text-white w-24 rounded"
+                            >
+                                Submit
+                            </button>
+                            <Link to="/registerpage">
+                                <button className="font-semibold bg-gray-500 text-white w-24 rounded">
+                                    Register
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
