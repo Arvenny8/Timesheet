@@ -31,6 +31,22 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.DECIMAL,
                 allowNull: false,
             },
+            phone: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            address: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            gender: {
+                type: DataTypes.ENUM("Male", "Female"),
+                allowNull: false,
+            },
+            birthday: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
             role: {
                 type: DataTypes.ENUM("FirstJob", "Admin"),
                 allowNull: false,
@@ -42,7 +58,7 @@ module.exports = (sequelize, DataTypes) => {
     );
     Employee.associate = (models) => {
         Employee.hasMany(models.EmployeeProjectRelation, {
-            foreingnKey: {
+            foreignKey: {
                 name: "employeeId",
                 allowNull: false,
             },

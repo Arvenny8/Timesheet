@@ -43,3 +43,43 @@ exports.updateById = async (req, res, next) => {
     await Employee.update(body, { where: { id: item.id } });
     res.status(200).json({ msg: "update done" });
 };
+
+exports.getAdmin = async (req, res, next) => {
+    const emp = req.params;
+    const employee = await Employee.findOne({
+        where: {
+            id: emp.id,
+            role: "Admin",
+        },
+        attributes: {
+            exclude: ["password", "updatedAt", "createdAt"],
+        },
+    });
+    res.status(200).json({ employee });
+};
+
+exports.getEmployee = async (req, res, next) => {
+    const emp = req.params;
+    const employee = await Employee.findOne({
+        where: {
+            id: emp.id,
+            role: "FirstJob",
+        },
+        attributes: {
+            exclude: ["password", "updatedAt", "createdAt"],
+        },
+    });
+    res.status(200).json({ employee });
+};
+exports.getEmployeebyId = async (req, res, next) => {
+    const emp = req.params;
+    const employee = await Employee.findOne({
+        where: {
+            id: emp.id,
+        },
+        attributes: {
+            exclude: ["password", "updatedAt", "createdAt"],
+        },
+    });
+    res.status(200).json({ employee });
+};

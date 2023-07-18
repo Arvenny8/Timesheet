@@ -99,9 +99,9 @@ export default function InputBox() {
                     <div className="text-white">0</div>
                 </>
             ))}
-            <button onClick={hdlClick} className="text-white font-semibold">
+            {/* <button onClick={hdlClick} className="text-white font-semibold">
                 Add
-            </button>
+            </button> */}
             <button className="text-white font-semibold">Submit</button>
         </>
     );

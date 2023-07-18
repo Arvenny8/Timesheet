@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     );
     Timesheet.associate = (models) => {
         Timesheet.belongsTo(models.EmployeeProjectRelation, {
-            foreingnKey: {
+            foreignKey: {
                 name: "EmployeeProjectRelationId",
                 allowNull: false,
             },

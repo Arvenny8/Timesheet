@@ -7,6 +7,7 @@ import Container from "../layout/Container";
 import SummaryPage from "../pages/SummaryPage";
 import EditTeampage from "../components/EditTeamPage";
 import ProjectPage from "../pages/ProjectPage";
+import ProfilePage from "../pages/ProfilePage";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
         element: <Container />,
         children: [
             {
+                path: "/ProfilePage",
+                element: <ProfilePage />,
+            },
+            {
                 path: "/teamPage",
                 element: <TeamPage />,
             },
@@ -29,10 +34,10 @@ const router = createBrowserRouter([
                 path: "/TimesheetPage",
                 element: <TimeSheetPage />,
             },
-            {
-                path: "/summaryPage",
-                element: <SummaryPage />,
-            },
+            // {
+            //     path: "/summaryPage",
+            //     element: <SummaryPage />,
+            // },
             {
                 path: "/editteampage",
                 element: <EditTeampage />,

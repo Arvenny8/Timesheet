@@ -11,6 +11,10 @@ export default function RegisterPage() {
     const [lastName, setLastName] = useState("");
     const [salary, setSalary] = useState("");
     const [role, setRole] = useState("");
+    const [phone, setPhone] = useState("");
+    const [address, setAddress] = useState("");
+    const [gender, setGender] = useState("");
+    const [birthday, setBirthday] = useState("");
     const navigate = useNavigate();
 
     const hdlpassword = (event) => {
@@ -31,6 +35,19 @@ export default function RegisterPage() {
     const hdlrole = (event) => {
         setRole(event.target.value);
     };
+    const hdlphone = (event) => {
+        setPhone(event.target.value);
+    };
+    const hdladdress = (event) => {
+        setAddress(event.target.value);
+    };
+    const hdlgender = (event) => {
+        setGender(event.target.value);
+    };
+    const hdlbirthday = (event) => {
+        setBirthday(event.target.value);
+    };
+
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -42,6 +59,10 @@ export default function RegisterPage() {
                 lastName,
                 salary,
                 role,
+                phone,
+                address,
+                gender,
+                birthday,
             });
 
             localStorage.setItem("accessToken", res.data.accessToken);
@@ -52,7 +73,7 @@ export default function RegisterPage() {
         }
     };
 
-    console.log(email);
+    console.log(phone);
     return (
         <>
             <form
@@ -118,6 +139,39 @@ export default function RegisterPage() {
                             <RegisterInput
                                 value={salary}
                                 onChange={hdlsalary}
+                            />
+                        </div>
+                        <div className="flex gap-5 justify-center">
+                            <div className="font-semibold text-white">
+                                PHONE :
+                            </div>
+                            <RegisterInput value={phone} onChange={hdlphone} />
+                        </div>
+                        <div className="flex gap-5 justify-center">
+                            <div className="font-semibold text-white">
+                                ADDRESS :
+                            </div>
+                            <RegisterInput
+                                value={address}
+                                onChange={hdladdress}
+                            />
+                        </div>
+                        <div className="flex gap-5 justify-center">
+                            <div className="font-semibold text-white">
+                                GENDER :
+                            </div>
+                            <RegisterInput
+                                value={gender}
+                                onChange={hdlgender}
+                            />
+                        </div>
+                        <div className="flex gap-5 justify-center">
+                            <div className="font-semibold text-white">
+                                BIRTHDAY :
+                            </div>
+                            <RegisterInput
+                                value={birthday}
+                                onChange={hdlbirthday}
                             />
                         </div>
                         <div className="flex gap-5 justify-center">

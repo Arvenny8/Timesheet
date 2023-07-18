@@ -5,6 +5,11 @@ export default function Header() {
         <>
             <header className="h-16 bg-slate-800 flex justify-between">
                 <div className="flex gap-10 items-center px-10 ">
+                    <Link to="ProfilePage">
+                        <div className="font-semibold text-lg text-white">
+                            Profile
+                        </div>
+                    </Link>
                     <Link to="/teamPage">
                         <div className="font-semibold text-lg text-white">
                             Team
@@ -15,11 +20,6 @@ export default function Header() {
                             Timesheet
                         </div>
                     </Link>
-                    {/* <Link to="SummaryPage">
-                        <div className="font-semibold text-lg text-white">
-                            Summary
-                        </div>
-                    </Link> */}
                     <Link to="ProjectPage">
                         <div className="font-semibold text-lg text-white">
                             Project

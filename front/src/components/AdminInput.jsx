@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Pencil } from "./image";
 
-export default function TeamInput() {
+export default function AdminInput() {
     const [data, setData] = useState([]);
     const navigate = useNavigate();
 
@@ -45,6 +45,21 @@ export default function TeamInput() {
                     </div>
                     <div className="flex justify-center bg-slate-200 w-auto p-2 rounded">
                         {data.role}
+                    </div>
+                    <div className="flex justify-evenly">
+                        <button
+                            className="text-white"
+                            onClick={() => hdlEdit(data)}
+                        >
+                            <Pencil />
+                        </button>
+
+                        <button
+                            className="text-white font-semibold text-xl"
+                            onClick={() => hdlDelete(data.id)}
+                        >
+                            &#10005;
+                        </button>
                     </div>
                 </>
             ))}

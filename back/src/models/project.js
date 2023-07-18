@@ -30,8 +30,8 @@ module.exports = (sequelize, DataTypes) => {
     );
     Project.associate = (models) => {
         Project.hasMany(models.EmployeeProjectRelation, {
-            foreingnKey: {
-                name: "EmployeeProjectRelationId",
+            foreignKey: {
+                name: "projectId",
                 allowNull: false,
             },
         });

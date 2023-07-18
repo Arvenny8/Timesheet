@@ -55,7 +55,12 @@ export default function ProjectPage() {
                             {data.status}
                         </div>
                         <div className="bg-slate-300 rounded m-4 h-[40px] w-[200px] flex justify-center items-center">
-                            Employee Name
+                            {
+                                data.EmployeeProjectRelations[0].Employee
+                                    .firstName
+                            }
+                            _
+                            {data.EmployeeProjectRelations[0].Employee.lastName}
                         </div>
                     </div>
                 </>

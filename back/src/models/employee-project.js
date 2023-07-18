@@ -8,20 +8,14 @@ module.exports = (sequelize, DataTypes) => {
     );
     EmployeeProjectRelation.associate = (models) => {
         EmployeeProjectRelation.belongsTo(models.Employee, {
-            foreingnKey: {
+            foreignKey: {
                 name: "employeeId",
                 allowNull: false,
             },
         });
         EmployeeProjectRelation.belongsTo(models.Project, {
-            foreingnKey: {
+            foreignKey: {
                 name: "projectId",
-                allowNull: false,
-            },
-        });
-        EmployeeProjectRelation.belongsTo(models.Project, {
-            foreingnKey: {
-                name: "EmployeeProjectRelationId",
                 allowNull: false,
             },
         });

@@ -23,6 +23,10 @@ const registerSchema = Joi.object({
         .strip(),
     salary: Joi.number().required(),
     role: Joi.string().trim().required(),
+    phone: Joi.string(),
+    address: Joi.string(),
+    gender: Joi.string(),
+    birthday: Joi.string(),
 });
 
 const loginSchema = Joi.object({
